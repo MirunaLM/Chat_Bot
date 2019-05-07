@@ -19,15 +19,14 @@ public class Main {
 	public static void main(String[] args)
 			throws IOException, JDOMException, ParserConfigurationException, SAXException {
 		
-		Bot bot = new Bot();
-		Human human = new Human();
-		ChatBot chatbot = new ChatBot();
-
 		File inputFile = new File("chatBot.xml");
 		SAXBuilder saxBuilder = new SAXBuilder();
 		Document document = saxBuilder.build(inputFile);
 
 		xmlFile xmlFile = new xmlFile(document);
+		Bot bot = new Bot();
+		Human human = new Human();
+		ChatBot chatbot = new ChatBot();
 
 		bot.getBox().addActionListener(new ActionListener() {
 
@@ -37,8 +36,7 @@ public class Main {
 				human.getHumanAsk(bot.getBox());
 				human.printHumanAsk(bot.getChat(), bot.getBox());
 				
-				String raspuns = chatbot.searchRaspuns(xmlFile, human.getHumanText(), bot.getChat());
-				
+				String raspuns = chatbot.searchRaspuns(xmlFile, human.getHumanText(), bot.getChat());				
 				if (raspuns != null) {
 					chatbot.printRaspuns(bot.getChat(), raspuns);
 				} else {
