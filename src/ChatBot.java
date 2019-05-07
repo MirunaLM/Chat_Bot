@@ -9,7 +9,6 @@ public class ChatBot {
 	private Element raspuns;
 	private String xmlText;
 
-
 	public String searchRaspuns(xmlFile xmlFile, String humanText,JTextArea jtextarea)
 	{
 		for (int temp = 0; temp < xmlFile.getChatList().size(); temp++) {
@@ -27,8 +26,7 @@ public class ChatBot {
 	
 	public void printRaspuns( JTextArea jtextarea, String raspunss)
 	{
-			jtextarea.append("ChatBot : " + raspunss + "\n");
-		
+			jtextarea.append("ChatBot : " + raspunss + "\n");	
 	}
 	
 }
