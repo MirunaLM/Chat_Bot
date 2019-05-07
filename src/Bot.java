@@ -12,10 +12,6 @@ public class Bot {
 	private JTextArea chatPrint = new JTextArea();
 	private JScrollPane scroll = new JScrollPane(chatPrint,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	private JTextField chatWrite = new JTextField();
-	
-
-
-
 
 	public Bot() {
 		JFrame frame = new JFrame();
@@ -33,7 +29,6 @@ public class Bot {
 		chatWrite.setSize(500, 50);
 		chatWrite.setLocation(2, 450);
 		
-
 	}
 
 	public JTextArea getChat() {
@@ -44,9 +39,5 @@ public class Bot {
 	public JTextField getBox() {
 		return chatWrite;
 	}
-	
-	
-	
-
 	
 }
