@@ -20,7 +20,7 @@ public class ChatBot {
 			return raspuns.getText();
 			
 		}
-		jtextarea.append("ChatBot : Nu stiu inca raspunsul la intrebarea ta, insa ma poti face mai destept \n daca scri tu unul scrie in consola \n");
+		jtextarea.append("ChatBot : Nu stiu inca raspunsul la intrebarea ta, insa ma poti face mai destept \n daca scri tu unul in consola \n");
 		return null;
 	}
 	
