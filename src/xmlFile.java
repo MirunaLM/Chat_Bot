@@ -7,6 +7,7 @@ import java.util.Scanner;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
@@ -23,12 +24,14 @@ public class xmlFile {
 		root = document.getRootElement();
 	}
 
-	public List<Element> getChatList() {
-		return chatList;
-	}
+	public void addElement(String humanText, String answer) {
+		newElement = root;
+		question = new Element("question").setText(humanText);
+		newElement.addContent(question);
 
-	public Element getRoot() {
-		return root;
+		newChildElement = question;
+		answare = new Element("answer").setText(answer);
+		newChildElement.addContent(answare);
 	}
 
 	public void addElement(String humanText) {
@@ -54,5 +57,13 @@ public class xmlFile {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+
+	public List<Element> getChatList() {
+		return chatList;
+	}
+
+	public Element getRoot() {
+		return root;
 	}
 }
