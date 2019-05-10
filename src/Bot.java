@@ -28,7 +28,6 @@ public class Bot {
 		chatPrint.setLocation(2, 2);
 		chatWrite.setSize(500, 50);
 		chatWrite.setLocation(2, 450);
-
 	}
 
 	public JTextArea getChat() {
