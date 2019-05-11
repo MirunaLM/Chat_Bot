@@ -16,7 +16,7 @@ public class xmlFile {
 	private Element newElement;
 	private Element newChildElement;
 	private Element question;
-	private Element answare;
+	private Element answer2;
 	private List<Element> chatList;
 
 	public xmlFile(Document document) throws JDOMException, IOException {
@@ -30,8 +30,8 @@ public class xmlFile {
 		newElement.addContent(question);
 
 		newChildElement = question;
-		answare = new Element("answer").setText(answer);
-		newChildElement.addContent(answare);
+		answer2 = new Element("answer").setText(answer);
+		newChildElement.addContent(answer2);
 	}
 
 	public void addElement(String humanText) {
