@@ -45,13 +45,14 @@ public class Main {
 				if (answer != null) // If the answer exists in the chatBot.xml file
 				{
 					chatbot.printAnswer(bot.getChat(), answer);
-				} else {
+				} else
+				{
 					if (chatbot.checkWeather(human.getHumanText())) // If specific words were found in the structure of
 																	// the question
 					{
-
 						Weather weather = new Weather();
-						try {
+						try 
+						{
 							weather.createXML(outputFile, weather.createURL());
 							// The answer are searched and then are printed
 							chatbot.answerWeather(bot.getChat(), weather, saxBuilder, outputFile, human.getHumanText());
@@ -71,11 +72,7 @@ public class Main {
 						xmlFile.xmlUpdate(document, inputFile);
 					}
 				}
-
 			}
-
 		});
-
 	}
-
 }
