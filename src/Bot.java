@@ -6,6 +6,9 @@ import javax.swing.JTextField;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Bot class takes care of the application user interface design
+ */
 public class Bot {
 
 	private JTextArea chatPrint = new JTextArea();
