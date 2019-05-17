@@ -21,7 +21,7 @@ public class Main {
 			throws IOException, JDOMException, ParserConfigurationException, SAXException {
 
 		File inputFile = new File("chatBot.xml");
-		File outputFile = new File("Vreme.xml");
+		File outputFile = new File("Weather.xml");
 
 		SAXBuilder saxBuilder = new SAXBuilder();
 		Document document = saxBuilder.build(inputFile);
@@ -32,21 +32,29 @@ public class Main {
 		ChatBot chatbot = new ChatBot();
 
 		bot.getBox().addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				human.getHumanAsk(bot.getBox());
 				human.printHumanAsk(bot.getChat(), bot.getBox());
+				// Here the question is searched in the chatBot.xml file and it is saved in the
+				// "answer" variable
+				String answer = chatbot.searchAnswer(xmlFile, human.getHumanText(), bot.getChat());
 
-				String raspuns = chatbot.searchRaspuns(xmlFile, human.getHumanText(), bot.getChat());
-
-				if (raspuns != null)
+				if (answer != null) // If the answer exists in the chatBot.xml file
 				{
-					if (raspuns.equals("http://api.apixu.com/v1/current.xml?key=da479f76ffb94335af2161350190905&q="))
+					chatbot.printAnswer(bot.getChat(), answer);
+				} else {
+					if (chatbot.checkWeather(human.getHumanText())) // If specific words were found in the structure of
+																	// the question
 					{
-						Vreme vreme = new Vreme();
+
+						Weather weather = new Weather();
 						try {
-							vreme.createXML(outputFile, vreme.createURL());
-							chatbot.raspunsuriVreme(bot.getChat(), human.getHumanText(), vreme, saxBuilder, outputFile);
+							weather.createXML(outputFile, weather.createURL());
+							// The answer are searched and then are printed
+							chatbot.answerWeather(bot.getChat(), weather, saxBuilder, outputFile, human.getHumanText());
 						} catch (IOException | ParserConfigurationException | SAXException | TransformerException e1) {
 							bot.getChat().append("ChatBot: Nu am gasit localitatea! \n");
 							// e1.printStackTrace();
@@ -54,13 +62,14 @@ public class Main {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-
-					} else
-						chatbot.printRaspuns(bot.getChat(), raspuns);
-				} else 
-				{
-					xmlFile.addElement(human.getHumanText());
-					xmlFile.xmlUpdate(document, inputFile);
+					} else // If specific words were not found in the structure of the question
+					{
+						bot.getChat().append(
+								"ChatBot : Nu stiu inca raspunsul la intrebarea ta, insa ma poti face mai destept \n daca scri tu unul scrie in consola \n");
+						// An new element is added in chatBot.xml
+						xmlFile.addElement(human.getHumanText());
+						xmlFile.xmlUpdate(document, inputFile);
+					}
 				}
 
 			}
