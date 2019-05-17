@@ -75,7 +75,7 @@ public class Weather {
 	 * 
 	 * @param contor = counts the repetition of the tags. The tags repeats themself
 	 * due to the fact that the XML file contains 7 days with identical tags, except
-	 * the ones general
+	 * the ones general(eg. localtime)
 	 * 
 	 * @param day = the day when the weather is checked
 	 * 
