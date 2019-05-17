@@ -42,9 +42,9 @@ public class ChatBot {
 	}
 
 	/*
-	 * This method divides the question stated by the user in conformity with the
-	 * character " " This check if in the question itself certain words exist(eg.
-	 * acum)
+	 * If the checkWeather function is TRUE, then is executed the function which
+	 * shows the weather in a certain day in conformity with which certain
+	 * specific words were found in the structure of the question(eg acum)
 	 * 
 	 * @param humanText = The question addressed by the user
 	 */
