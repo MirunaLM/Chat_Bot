@@ -26,7 +26,7 @@ public class Main {
 		SAXBuilder saxBuilder = new SAXBuilder();
 		Document document = saxBuilder.build(inputFile);
 
-		xmlFile xmlFile = new xmlFile(document);
+		XmlFile xmlFile = new XmlFile(document);
 		Bot bot = new Bot();
 		Human human = new Human();
 		ChatBot chatbot = new ChatBot();
