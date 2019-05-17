@@ -1,6 +1,10 @@
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * The Human class takes care of the questions addressed by the users.
+ */
+
 public class Human {
 
 	private String humanText;
